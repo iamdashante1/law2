@@ -3,17 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --radius: 14px;
+  --radius: 24px;
 }
 
-html, body { scroll-behavior: smooth; }
+html,
+body {
+  scroll-behavior: smooth;
+}
 
 body {
-  background-color: #f8faf9;
-  color: #0f172a; /* slate-900 */
+  font-family: var(--font-sans), system-ui;
+  background: #f4f2ec;
+  color: #1b1a18;
+}
+
+::selection {
+  background: #1b1a18;
+  color: #f4f2ec;
 }
 
 @layer base {
-  h1, h2, h3, h4 { @apply tracking-tight; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-charcoal;
+  }
+
+  p {
+    @apply leading-relaxed text-sm md:text-base;
+  }
 }
 
+@layer components {
+  .card {
+    @apply rounded-2xl bg-linen px-5 py-5 text-[#1b1a18];
+  }
+
+  .card-accent {
+    @apply rounded-2xl bg-linen px-5 py-5 text-[#1b1a18];
+  }
+
+}

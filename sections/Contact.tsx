@@ -1,33 +1,70 @@
 import AnimatedButton from '@/components/AnimatedButton'
-import { Mail, Phone } from 'lucide-react'
+
+const contactCards = [
+  {
+    title: 'Call',
+    detail: '+1 (347) 555-0144',
+    description: 'Direct line. If I am in court you will hear back before the end of day.',
+    accent: true,
+  },
+  {
+    title: 'Email',
+    detail: 'avega@briefstudio.com',
+    description: 'Send context, deadlines, or a Dropbox folder—whatever helps me get up to speed.',
+  },
+  {
+    title: 'Meeting',
+    detail: 'Remote-first / Manhattan',
+    description: 'Video by default; in-person available on Thursdays near Madison Square Park.',
+  },
+]
+
+const followUp = [
+  { label: 'Response window', value: 'Under 1 business day' },
+  { label: 'Availability', value: 'Limited to 6 concurrent matters' },
+  { label: 'Format', value: 'Short memos, clear next steps, optional Loom recaps' },
+]
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-20 bg-brand-50/60">
-      <div className="container max-w-4xl">
-        <h2 className="font-display text-2xl sm:text-4xl">Get In Touch</h2>
-        <p className="mt-2 text-slate-600">Tell us a bit about your matter and we’ll follow up promptly.</p>
+    <section id="contact" className="w-full mt-20">
+      <div className="w-full">
+        <div className="mx-auto w-full max-w-7xl space-y-10 px-6 md:px-10">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs capitalize text-smoke">Contact</p>
+            <h2 className="font-display text-4xl leading-tight">Tell me what needs to move.</h2>
+            <p>
+              Send a short note outlining the decision or dispute. I will confirm receipt, ask for any missing context, and propose a
+              working session if it makes sense for us to connect.
+            </p>
+          </div>
 
-        <form className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="sm:col-span-1">
-            <label className="block text-sm text-slate-700">Name</label>
-            <input className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300" placeholder="Your name" />
+          <div className="w-full bg-cream">
+            <div className="grid gap-5 md:grid-cols-3">
+              {contactCards.map((card) => (
+                <div key={card.title} className="rounded-2xl bg-white px-5 py-5 text-[#1b1a18]">
+                  <p className="text-xs capitalize text-smoke">{card.title}</p>
+                  <p className="text-base font-medium text-charcoal">{card.detail}</p>
+                  <p className="text-sm">{card.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {followUp.map((item) => (
+                <div key={item.label} className="rounded-2xl bg-white px-5 py-5 text-sm text-[#1b1a18]">
+                  <p className="text-xs capitalize text-smoke">{item.label}</p>
+                  <p className="mt-2 text-base">{item.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="sm:col-span-1">
-            <label className="block text-sm text-slate-700">Email</label>
-            <input type="email" className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300" placeholder="you@example.com" />
-          </div>
-          <div className="sm:col-span-2">
-            <label className="block text-sm text-slate-700">Message</label>
-            <textarea className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300" rows={4} placeholder="How can we help?" />
-          </div>
-          <div className="sm:col-span-2 flex items-center gap-3">
-            <AnimatedButton type="submit" variant="primary"><Mail className="h-4 w-4" /> Send</AnimatedButton>
-            <AnimatedButton href="tel:(555)123-4567" variant="outline"><Phone className="h-4 w-4" /> Call (555) 123-4567</AnimatedButton>
-          </div>
-        </form>
+
+          <AnimatedButton href="mailto:avega@briefstudio.com" variant="primary" className="w-full justify-center md:w-auto">
+            Email Adrian
+          </AnimatedButton>
+        </div>
       </div>
     </section>
   )
 }
-

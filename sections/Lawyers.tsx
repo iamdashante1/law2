@@ -1,31 +1,70 @@
-import Image from 'next/image'
+const stats = [
+  { label: 'Years advising founders', value: '12' },
+  { label: 'Matters per year', value: '30' },
+  { label: 'Languages', value: '3' },
+]
 
-type Lawyer = { name: string; role: string; img: string }
-const lawyers: Lawyer[] = [
-  { name: 'Jordan Blake', role: 'Managing Partner', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop' },
-  { name: 'Ava Thompson', role: 'Litigation Counsel', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop' },
-  { name: 'Michael Chen', role: 'Corporate Associate', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop' },
+const clients = [
+  'Seed to Series C teams scaling internationally',
+  'Creative studios needing retained counsel',
+  'Family offices navigating private investments',
+]
+
+const promises = [
+  'Every matter begins with a working session to understand the people involved.',
+  'Communication stays direct—my phone, my inbox, no handlers.',
+  'Preparation is visible: written briefs, timelines, and risk flags before we move.',
 ]
 
 export default function Lawyers() {
   return (
-    <section id="lawyers" className="py-16 md:py-20">
-      <div className="container">
-        <h2 className="font-display text-2xl sm:text-4xl">Our Lawyers</h2>
-        <p className="mt-2 text-slate-600 max-w-2xl">Experienced advocates committed to practical strategy and clear communication.</p>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {lawyers.map((l) => (
-            <div key={l.name} className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
-              <div className="aspect-[4/5] relative">
-                <Image src={l.img} alt={`${l.name}, ${l.role}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
-              </div>
-              <div className="p-4">
-                <div className="font-medium text-slate-900">{l.name}</div>
-                <div className="text-sm text-slate-600">{l.role}</div>
-              </div>
+    <section id="lawyers" className="w-full mt-20">
+      <div className="w-full">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-12 md:px-12 lg:flex-row">
+          <div className="flex-1 space-y-6 text-left">
+            <p className="text-xs capitalize text-smoke">About</p>
+            <h2 className="font-display text-4xl leading-tight">A solo practice built to sit inside your team.</h2>
+            <p>
+              I spent a decade inside big-law litigation groups before choosing a smaller practice on purpose. Clients work directly with me,
+              getting courtroom instincts plus the speed of an embedded operator.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div key={stat.label} className="card bg-white text-center">
+                  <p className="text-3xl font-display">{stat.value}</p>
+                  <p className="mt-2 text-xs capitalize text-smoke">{stat.label}</p>
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="space-y-2 text-sm text-smoke">
+              <p>Fordham Law, J.D. · Columbia University, B.A. Political Science</p>
+              <p>Admissions: New York, New Jersey · NYC Bar Startup & Emerging Companies Committee</p>
+            </div>
+          </div>
+
+          <div className="flex-1 space-y-6">
+            <div className="card bg-white space-y-4">
+              <p className="text-xs capitalize text-smoke">Who I sit with</p>
+              <ul className="space-y-3 text-sm">
+                {clients.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card bg-white space-y-4">
+              <p className="text-xs capitalize text-smoke">What to expect</p>
+              <ul className="space-y-3 text-sm">
+                {promises.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card bg-white space-y-2">
+              <p className="text-xs capitalize text-smoke">Direct line</p>
+              <p className="text-lg font-display text-charcoal">+1 (347) 555-0144</p>
+              <p className="text-smoke">No assistants—just me.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

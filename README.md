@@ -1,4 +1,4 @@
-# Crownstone Lawyers (law2)
+# Adrian Vega Counsel (law2)
 
 A light, modern Next.js + Tailwind site for a law practice. Built to mirror `law1` structure with a distinct design.
 
@@ -21,7 +21,7 @@ A light, modern Next.js + Tailwind site for a law practice. Built to mirror `law
 - Image domains are configured for Unsplash in `next.config.mjs`.
 
 ## Customization
-- Branding: update name in `components/Navbar.tsx:17` and footer text in `components/Footer.tsx:5`.
+- Branding: update name in `components/Navbar.tsx` and footer text in `components/Footer.tsx`.
 - Colors/Fonts: tweak `tailwind.config.ts` (brand palette, accent, fonts).
 
 ## Structure

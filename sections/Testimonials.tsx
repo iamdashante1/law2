@@ -1,18 +1,42 @@
+const testimonials = [
+  {
+    quote:
+      'Adrian walked me through a founder dispute with total calm. Agreements were clear, fair, and we wrapped everything inside a month.',
+    author: 'Co-founder, Series A SaaS',
+  },
+  {
+    quote: 'He feels like an operator first and a lawyer second. Notes were concise and decisions happened faster.',
+    author: 'Managing Director, Creative Studio',
+  },
+  {
+    quote: 'No heavy-handed theatrics—just thoughtful preparation and decisive advocacy when we needed it.',
+    author: 'Principal, Emerging Fund',
+  },
+]
+
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-16 md:py-20 bg-white">
-      <div className="container">
-        <h2 className="font-display text-2xl sm:text-4xl">What Clients Say</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[`Clear, actionable guidance from day one.`, `A steady hand in a tough dispute—great outcome.`, `Responsive, thoughtful, and efficient.`].map((q, i) => (
-            <figure key={i} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <blockquote className="text-slate-800">“{q}”</blockquote>
-              <figcaption className="mt-3 text-sm text-slate-600">— Client</figcaption>
-            </figure>
-          ))}
+    <section id="testimonials" className="w-full bg-white mt-20 py-10">
+      <div className="w-full">
+        <div className="mx-auto w-full max-w-7xl space-y-8 px-6 md:px-10">
+          <div className="max-w-2xl">
+            <p className="text-xs capitalize text-smoke">Clients</p>
+            <h2 className="mt-3 font-display text-4xl leading-tight">Quiet feedback from the people I serve.</h2>
+            <p className="mt-4 text-smoke">Most of my work is referral-based. Here is what returning clients note most often.</p>
+          </div>
+
+          <div className="w-full bg-white p-8">
+            <div className="grid gap-5 md:grid-cols-3">
+              {testimonials.map((item, idx) => (
+                <figure key={item.author} className={`${idx === 0 ? 'card-accent' : 'card'} bg-cream space-y-3`}>
+                  <blockquote className="text-lg leading-relaxed text-charcoal">“{item.quote}”</blockquote>
+                  <figcaption className="text-sm capitalize text-smoke">{item.author}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
-

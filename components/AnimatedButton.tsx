@@ -15,13 +15,13 @@ type Props = {
 
 export default function AnimatedButton({ href, children, className, variant = 'primary', disabled, onClick, type = 'button' }: Props) {
   const base = clsx(
-    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-colors',
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-300',
+    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200',
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent/30 focus-visible:ring-offset-cream',
     disabled && 'opacity-70 cursor-not-allowed',
-    variant === 'primary' && 'bg-brand-700 hover:bg-brand-800 text-white',
-    variant === 'accent' && 'bg-accent hover:brightness-95 text-white',
-    variant === 'outline' && 'border border-slate-300 text-slate-800 hover:bg-slate-50',
-    variant === 'ghost' && 'text-slate-700 hover:text-slate-900',
+    variant === 'primary' && 'bg-charcoal text-cream hover:bg-ebony',
+    variant === 'accent' && 'bg-accent text-ebony hover:bg-amber',
+    variant === 'outline' && 'text-charcoal underline underline-offset-4 decoration-charcoal/40 hover:decoration-charcoal',
+    variant === 'ghost' && 'text-smoke hover:text-charcoal',
     className,
   )
 
@@ -54,4 +54,3 @@ export default function AnimatedButton({ href, children, className, variant = 'p
     </motion.button>
   )
 }
-
