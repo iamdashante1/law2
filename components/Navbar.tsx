@@ -35,7 +35,16 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <AnimatedButton href="#contact" variant="primary" className="ml-auto md:ml-6">
+        <AnimatedButton
+          variant="primary"
+          className="ml-auto md:ml-6"
+          onClick={() => {
+            const el = document.querySelector('#contact')
+            if (el instanceof HTMLElement) {
+              el.scrollIntoView({ behavior: 'smooth' })
+            }
+          }}
+        >
           Schedule a call
         </AnimatedButton>
       </div>

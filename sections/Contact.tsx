@@ -60,7 +60,13 @@ export default function Contact() {
             </div>
           </div>
 
-          <AnimatedButton href="mailto:avega@briefstudio.com" variant="primary" className="w-full justify-center md:w-auto">
+          <AnimatedButton
+            variant="primary"
+            className="w-full justify-center md:w-auto"
+            onClick={() => {
+              window.location.href = 'mailto:avega@briefstudio.com'
+            }}
+          >
             Email Adrian
           </AnimatedButton>
         </div>

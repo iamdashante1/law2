@@ -5,6 +5,8 @@ import Lawyers from '@/sections/Lawyers'
 import Testimonials from '@/sections/Testimonials'
 import Contact from '@/sections/Contact'
 
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   return (
     <>
