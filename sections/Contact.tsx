@@ -1,3 +1,4 @@
+'use client'
 import AnimatedButton from '@/components/AnimatedButton'
 
 const contactCards = [
